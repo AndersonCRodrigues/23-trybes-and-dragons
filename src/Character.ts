@@ -1,5 +1,5 @@
 import Energy from './Energy';
-import Fighter from './Fighter';
+import Fighter, { SimpleFighter } from './Fighter';
 import Race, { Dwarf, Elf, Halfling, Orc } from './Races';
 import Archetype, { Mage, Necromancer, Ranger, Warrior } from './Archetypes';
 import getRandomInt from './utils';
@@ -110,11 +110,11 @@ export default class Character implements Fighter {
     return undefined;
   }
 
-  attack(enemy: Fighter): void {
+  attack(enemy: Fighter | SimpleFighter): void {
     enemy.receiveDamage(this.strength);
   }
 
-  special?(enemy: Fighter): void {
+  special?(enemy: Fighter | SimpleFighter): void {
     if (this._energy && this._energy.amount >= 4) {
       this._energy.amount -= 4;
       enemy.receiveDamage(this._strength * 2);
@@ -143,4 +143,4 @@ export default class Character implements Fighter {
 }
 
 // const char = new Character('tests');
-// console.log(char.race);
+// console.log(char.strength);
