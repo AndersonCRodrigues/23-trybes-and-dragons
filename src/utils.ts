@@ -7,3 +7,4 @@ function getRandomInt(min: number, max: number) {
 export default getRandomInt;
 
 // commit inicial
+// console.log(getRandomInt(1, 10));
